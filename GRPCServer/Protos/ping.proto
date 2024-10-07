@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option csharp_namespace = "GRPCServer";
+
+package GrpcTest;
+
+service GrpcTest
+{
+    rpc Ping (PingRequest) returns (PingResponse);
+
+    rpc Ping2 (Ping2Request) returns (Ping2Response);
+}
+
+message PingRequest
+{
+    string data = 1;
+}
+
+message PingResponse
+{
+    string data = 1;
+}
+
+message Ping2Request 
+{
+    string data = 1;
+}
+
+message Ping2Response 
+{
+    bool success = 1;
+    string message = 2;
+    string data = 3;
+}
