@@ -14,4 +14,8 @@ The purpose of these projects was to benchmark if GRPC is actually faster than W
 
 Results did in fact confirm these claims.
 
+Youtube Videos:
 
+1. Project Structure - https://youtu.be/bI5YREd_XTM
+2. Local Tests - https://youtu.be/Xnd9QD2RBFg
+3. Remote Tests - https://youtu.be/uTWG5tHgIqs
