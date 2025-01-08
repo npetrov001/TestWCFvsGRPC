@@ -12,7 +12,9 @@ Both servers expose 2 simple methods:
 
 The purpose of these projects was to benchmark if GRPC is actually faster than WCF, more light-weight and can handle more concurrent requests.
 
-Results did in fact confirm these claims.
+Original Results confirmed these claims when WCF was tested over HTTP Transport.
+
+However, if WCF is used over NET.TCP Transport, it performs on-par with gRPC.
 
 Youtube Videos:
 
