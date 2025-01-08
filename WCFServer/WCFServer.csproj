@@ -100,7 +100,7 @@
     <Compile Include="WCF\IDataService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WCF\MyHttpBinding.cs" />
+    <Compile Include="WCF\MyBindings.cs" />
     <Compile Include="WCF\WCFService.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

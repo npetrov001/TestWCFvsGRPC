@@ -73,7 +73,9 @@ namespace WCFServer
                 wcf_server.AddServiceEndpoint(typeof(IDataService), binding_mex, "mex");
 #endif
 
-                BasicHttpBinding binding = WCF.MyHttpBinding.MyBinding();
+                System.ServiceModel.Channels.Binding binding =
+                    MyBindings.Http_or_Tcp(rdoHttpBinding.Checked);
+
                 wcf_server.AddServiceEndpoint(typeof(WCF.IDataService), binding, "");
 
                 wcf_server.Open();
@@ -117,5 +119,32 @@ namespace WCFServer
 
             lblTime.Text = DateTime.Now.ToString("HH:mm:ss.fff");
         }
+
+        private void rdoHttpBinding_CheckedChanged(object sender, EventArgs e)
+        {
+            ReplaceUrlProtocol("http");
+        }
+
+        private void rdoTcpBinding_CheckedChanged(object sender, EventArgs e)
+        {
+            ReplaceUrlProtocol("net.tcp");
+        }
+
+        private void ReplaceUrlProtocol(string sPrefix)
+        {
+            string sURL = txtURL.Text.Trim();
+            int i1 = sURL.IndexOf("//");
+            if (i1 >= 0)
+            {
+                sURL = sPrefix + ":" + sURL.Substring(i1);
+            }
+            else
+            {
+                sURL = sPrefix + "://" + sURL;
+            }
+            txtURL.Text = sURL;
+        }
+
+
     }
 }

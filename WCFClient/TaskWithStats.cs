@@ -14,6 +14,8 @@ namespace WCFClient
     {
         // params
         private string sURL = "";
+        private bool bHttpBinding = true;
+
         private int MsgSize = 0;
         private int MaxMessages = 0;
 
@@ -26,12 +28,16 @@ namespace WCFClient
         // flag to run / stop
         private bool bKeepRunning = false;
 
-        public void StartThreadOrTask(string sURL, int MsgSize, int MaxMessages, bool bUseThread)
+        public TaskWithStats(string sURL, bool bHttpBinding, int MsgSize, int MaxMessages)
         {
             this.sURL = sURL;
+            this.bHttpBinding = bHttpBinding;
             this.MsgSize = MsgSize;
             this.MaxMessages = MaxMessages;
+        }
 
+        public void StartThreadOrTask(bool bUseThread)
+        {
             bKeepRunning = true;
 
             if (bUseThread)
@@ -71,8 +77,9 @@ namespace WCFClient
                 }
                 sBase = sb.ToString();
 
-                var binding = WCFServer.WCF.MyHttpBinding.MyBinding();
+                var binding = WCFServer.WCF.MyBindings.Http_or_Tcp(bHttpBinding);
                 var address = new System.ServiceModel.EndpointAddress(sURL);
+
                 client = new WcfServiceReference.DataServiceClient(binding, address);
 
                 // do a Ping to test connection

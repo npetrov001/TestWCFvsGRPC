@@ -50,14 +50,21 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gridStats = new System.Windows.Forms.DataGridView();
-            this.rdoThreads = new System.Windows.Forms.RadioButton();
-            this.rdoTasks = new System.Windows.Forms.RadioButton();
             this.colThread = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSuccess = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colErrors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReqPerSec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAvgMs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rdoThreads = new System.Windows.Forms.RadioButton();
+            this.rdoTasks = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.rdoTcpBinding = new System.Windows.Forms.RadioButton();
+            this.rdoHttpBinding = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.gridStats)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtURL
@@ -65,7 +72,7 @@
             this.txtURL.Location = new System.Drawing.Point(49, 30);
             this.txtURL.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtURL.Name = "txtURL";
-            this.txtURL.Size = new System.Drawing.Size(311, 22);
+            this.txtURL.Size = new System.Drawing.Size(344, 22);
             this.txtURL.TabIndex = 2;
             this.txtURL.Text = "http://localhost:5001";
             // 
@@ -81,22 +88,22 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(12, 60);
+            this.btnTest.Location = new System.Drawing.Point(12, 90);
             this.btnTest.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnTest.Name = "btnTest";
-            this.btnTest.Size = new System.Drawing.Size(348, 32);
-            this.btnTest.TabIndex = 3;
+            this.btnTest.Size = new System.Drawing.Size(381, 32);
+            this.btnTest.TabIndex = 4;
             this.btnTest.Text = "Test Ping (Complete Connect && Test)";
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
             // txtOut
             // 
-            this.txtOut.Location = new System.Drawing.Point(12, 98);
+            this.txtOut.Location = new System.Drawing.Point(12, 128);
             this.txtOut.Multiline = true;
             this.txtOut.Name = "txtOut";
-            this.txtOut.Size = new System.Drawing.Size(348, 98);
-            this.txtOut.TabIndex = 4;
+            this.txtOut.Size = new System.Drawing.Size(381, 86);
+            this.txtOut.TabIndex = 5;
             // 
             // lblArchitecture
             // 
@@ -110,28 +117,28 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 209);
+            this.label2.Location = new System.Drawing.Point(9, 227);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(155, 14);
-            this.label2.TabIndex = 5;
+            this.label2.TabIndex = 6;
             this.label2.Text = "Base Message Size (bytes):";
             // 
             // txtMessageSize
             // 
-            this.txtMessageSize.Location = new System.Drawing.Point(231, 206);
+            this.txtMessageSize.Location = new System.Drawing.Point(231, 224);
             this.txtMessageSize.Name = "txtMessageSize";
             this.txtMessageSize.Size = new System.Drawing.Size(98, 22);
-            this.txtMessageSize.TabIndex = 6;
+            this.txtMessageSize.TabIndex = 7;
             this.txtMessageSize.Text = "1,000";
             // 
             // btnStressStart
             // 
             this.btnStressStart.Enabled = false;
-            this.btnStressStart.Location = new System.Drawing.Point(12, 327);
+            this.btnStressStart.Location = new System.Drawing.Point(12, 345);
             this.btnStressStart.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnStressStart.Name = "btnStressStart";
             this.btnStressStart.Size = new System.Drawing.Size(170, 32);
-            this.btnStressStart.TabIndex = 9;
+            this.btnStressStart.TabIndex = 13;
             this.btnStressStart.Text = "Start Stress Test";
             this.btnStressStart.UseVisualStyleBackColor = true;
             this.btnStressStart.Click += new System.EventHandler(this.btnStressStart_Click);
@@ -139,22 +146,22 @@
             // btnStressStop
             // 
             this.btnStressStop.Enabled = false;
-            this.btnStressStop.Location = new System.Drawing.Point(190, 327);
+            this.btnStressStop.Location = new System.Drawing.Point(190, 345);
             this.btnStressStop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnStressStop.Name = "btnStressStop";
             this.btnStressStop.Size = new System.Drawing.Size(170, 32);
-            this.btnStressStop.TabIndex = 10;
+            this.btnStressStop.TabIndex = 14;
             this.btnStressStop.Text = "Stop Stress Test";
             this.btnStressStop.UseVisualStyleBackColor = true;
             this.btnStressStop.Click += new System.EventHandler(this.btnStressStop_Click);
             // 
             // txtStressTest
             // 
-            this.txtStressTest.Location = new System.Drawing.Point(11, 383);
+            this.txtStressTest.Location = new System.Drawing.Point(11, 401);
             this.txtStressTest.Multiline = true;
             this.txtStressTest.Name = "txtStressTest";
-            this.txtStressTest.Size = new System.Drawing.Size(348, 156);
-            this.txtStressTest.TabIndex = 11;
+            this.txtStressTest.Size = new System.Drawing.Size(382, 156);
+            this.txtStressTest.TabIndex = 16;
             // 
             // timerRefresh
             // 
@@ -163,54 +170,54 @@
             // 
             // txtMaxMessages
             // 
-            this.txtMaxMessages.Location = new System.Drawing.Point(231, 256);
+            this.txtMaxMessages.Location = new System.Drawing.Point(231, 274);
             this.txtMaxMessages.Name = "txtMaxMessages";
             this.txtMaxMessages.Size = new System.Drawing.Size(98, 22);
-            this.txtMaxMessages.TabIndex = 8;
+            this.txtMaxMessages.TabIndex = 11;
             this.txtMaxMessages.Text = "0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 259);
+            this.label3.Location = new System.Drawing.Point(9, 277);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(209, 14);
-            this.label3.TabIndex = 7;
+            this.label3.TabIndex = 10;
             this.label3.Text = "Messages per Thread (0 - unlimited):";
             // 
             // txtThreads
             // 
-            this.txtThreads.Location = new System.Drawing.Point(231, 231);
+            this.txtThreads.Location = new System.Drawing.Point(231, 249);
             this.txtThreads.Name = "txtThreads";
             this.txtThreads.Size = new System.Drawing.Size(98, 22);
-            this.txtThreads.TabIndex = 13;
+            this.txtThreads.TabIndex = 9;
             this.txtThreads.Text = "10";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 234);
+            this.label4.Location = new System.Drawing.Point(9, 252);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 14);
-            this.label4.TabIndex = 12;
+            this.label4.TabIndex = 8;
             this.label4.Text = "# of Threads / Tasks:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 366);
+            this.label5.Location = new System.Drawing.Point(9, 384);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 14);
-            this.label5.TabIndex = 14;
+            this.label5.TabIndex = 15;
             this.label5.Text = "Summary:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(369, 7);
+            this.label6.Location = new System.Drawing.Point(398, 7);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 14);
-            this.label6.TabIndex = 15;
+            this.label6.TabIndex = 17;
             this.label6.Text = "Thread Stats:";
             // 
             // gridStats
@@ -234,37 +241,15 @@
             this.colReqPerSec,
             this.colAvgMs});
             this.gridStats.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.gridStats.Location = new System.Drawing.Point(372, 30);
+            this.gridStats.Location = new System.Drawing.Point(401, 30);
             this.gridStats.MultiSelect = false;
             this.gridStats.Name = "gridStats";
             this.gridStats.RowHeadersVisible = false;
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(4, 0, 0, 1);
             this.gridStats.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.gridStats.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridStats.Size = new System.Drawing.Size(392, 509);
-            this.gridStats.TabIndex = 16;
-            // 
-            // rdoThreads
-            // 
-            this.rdoThreads.AutoSize = true;
-            this.rdoThreads.Checked = true;
-            this.rdoThreads.Location = new System.Drawing.Point(12, 292);
-            this.rdoThreads.Name = "rdoThreads";
-            this.rdoThreads.Size = new System.Drawing.Size(93, 18);
-            this.rdoThreads.TabIndex = 17;
-            this.rdoThreads.TabStop = true;
-            this.rdoThreads.Text = "Use Threads";
-            this.rdoThreads.UseVisualStyleBackColor = true;
-            // 
-            // rdoTasks
-            // 
-            this.rdoTasks.AutoSize = true;
-            this.rdoTasks.Location = new System.Drawing.Point(122, 292);
-            this.rdoTasks.Name = "rdoTasks";
-            this.rdoTasks.Size = new System.Drawing.Size(79, 18);
-            this.rdoTasks.TabIndex = 18;
-            this.rdoTasks.Text = "Use Tasks";
-            this.rdoTasks.UseVisualStyleBackColor = true;
+            this.gridStats.Size = new System.Drawing.Size(433, 527);
+            this.gridStats.TabIndex = 18;
             // 
             // colThread
             // 
@@ -314,13 +299,88 @@
             this.colAvgMs.Name = "colAvgMs";
             this.colAvgMs.ReadOnly = true;
             // 
+            // rdoThreads
+            // 
+            this.rdoThreads.AutoSize = true;
+            this.rdoThreads.Checked = true;
+            this.rdoThreads.Location = new System.Drawing.Point(0, 3);
+            this.rdoThreads.Name = "rdoThreads";
+            this.rdoThreads.Size = new System.Drawing.Size(93, 18);
+            this.rdoThreads.TabIndex = 0;
+            this.rdoThreads.TabStop = true;
+            this.rdoThreads.Text = "Use Threads";
+            this.rdoThreads.UseVisualStyleBackColor = true;
+            // 
+            // rdoTasks
+            // 
+            this.rdoTasks.AutoSize = true;
+            this.rdoTasks.Location = new System.Drawing.Point(99, 3);
+            this.rdoTasks.Name = "rdoTasks";
+            this.rdoTasks.Size = new System.Drawing.Size(79, 18);
+            this.rdoTasks.TabIndex = 1;
+            this.rdoTasks.Text = "Use Tasks";
+            this.rdoTasks.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(204, 5);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(164, 14);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "- set same on server && client";
+            // 
+            // rdoTcpBinding
+            // 
+            this.rdoTcpBinding.AutoSize = true;
+            this.rdoTcpBinding.Location = new System.Drawing.Point(104, 3);
+            this.rdoTcpBinding.Name = "rdoTcpBinding";
+            this.rdoTcpBinding.Size = new System.Drawing.Size(90, 18);
+            this.rdoTcpBinding.TabIndex = 1;
+            this.rdoTcpBinding.Text = "TCP Binding";
+            this.rdoTcpBinding.UseVisualStyleBackColor = true;
+            this.rdoTcpBinding.CheckedChanged += new System.EventHandler(this.rdoTcpBinding_CheckedChanged);
+            // 
+            // rdoHttpBinding
+            // 
+            this.rdoHttpBinding.AutoSize = true;
+            this.rdoHttpBinding.Checked = true;
+            this.rdoHttpBinding.Location = new System.Drawing.Point(0, 3);
+            this.rdoHttpBinding.Name = "rdoHttpBinding";
+            this.rdoHttpBinding.Size = new System.Drawing.Size(99, 18);
+            this.rdoHttpBinding.TabIndex = 0;
+            this.rdoHttpBinding.TabStop = true;
+            this.rdoHttpBinding.Text = "HTTP Binding";
+            this.rdoHttpBinding.UseVisualStyleBackColor = true;
+            this.rdoHttpBinding.CheckedChanged += new System.EventHandler(this.rdoHttpBinding_CheckedChanged);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rdoThreads);
+            this.panel1.Controls.Add(this.rdoTasks);
+            this.panel1.Location = new System.Drawing.Point(14, 305);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 25);
+            this.panel1.TabIndex = 12;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.rdoHttpBinding);
+            this.panel2.Controls.Add(this.rdoTcpBinding);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Location = new System.Drawing.Point(14, 58);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(381, 26);
+            this.panel2.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 547);
-            this.Controls.Add(this.rdoTasks);
-            this.Controls.Add(this.rdoThreads);
+            this.ClientSize = new System.Drawing.Size(845, 565);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.gridStats);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -346,6 +406,10 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridStats)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,6 +442,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colErrors;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReqPerSec;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAvgMs;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RadioButton rdoTcpBinding;
+        private System.Windows.Forms.RadioButton rdoHttpBinding;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

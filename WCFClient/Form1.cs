@@ -47,7 +47,9 @@ namespace WCFClient
 
             try
             {
-                BasicHttpBinding binding = WCFServer.WCF.MyHttpBinding.MyBinding();
+                System.ServiceModel.Channels.Binding binding = 
+                    WCFServer.WCF.MyBindings.Http_or_Tcp(rdoHttpBinding.Checked);
+
                 EndpointAddress address = new System.ServiceModel.EndpointAddress(txtURL.Text.Trim());
 
                 using(WcfServiceReference.DataServiceClient client = new WcfServiceReference.DataServiceClient(binding, address))
@@ -132,8 +134,8 @@ namespace WCFClient
 
                 for (int i = 0; i < nThreads; i++)
                 {
-                    TaskWithStats tt = new TaskWithStats();
-                    tt.StartThreadOrTask(sURL, nMsgSize, nMaxMessages, bUseThreads);
+                    TaskWithStats tt = new TaskWithStats(sURL, rdoHttpBinding.Checked, nMsgSize, nMaxMessages);
+                    tt.StartThreadOrTask(bUseThreads);
                     lstTasks.Add(tt);
                 }
 
@@ -285,5 +287,31 @@ namespace WCFClient
             // wait a bit
             Thread.Sleep(100);
         }
+
+        private void rdoHttpBinding_CheckedChanged(object sender, EventArgs e)
+        {
+            ReplaceUrlProtocol("http");
+        }
+
+        private void rdoTcpBinding_CheckedChanged(object sender, EventArgs e)
+        {
+            ReplaceUrlProtocol("net.tcp");
+        }
+
+        private void ReplaceUrlProtocol(string sPrefix)
+        {
+            string sURL = txtURL.Text.Trim();
+            int i1 = sURL.IndexOf("//");
+            if (i1 >= 0)
+            {
+                sURL = sPrefix + ":" + sURL.Substring(i1);
+            }
+            else
+            {
+                sURL = sPrefix + "://" + sURL;
+            }
+            txtURL.Text = sURL;
+        }
+
     }
 }

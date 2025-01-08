@@ -88,8 +88,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\WCFServer\WCF\MyHttpBinding.cs">
-      <Link>WCF\MyHttpBinding.cs</Link>
+    <Compile Include="..\WCFServer\WCF\MyBindings.cs">
+      <Link>WCF\MyBindings.cs</Link>
     </Compile>
     <Compile Include="Connected Services\WcfServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>

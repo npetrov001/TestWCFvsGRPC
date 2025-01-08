@@ -45,16 +45,18 @@ namespace GRPCServer
                     timerRefresh.Enabled = true;
 
                     builder = WebApplication.CreateBuilder();
-                    
+
                     // configure as HTTP/2 only endpoint to avoid errors when using HTTP instead of HTTPS
-                    builder.WebHost.ConfigureKestrel(options => 
-                        options.ConfigureEndpointDefaults(defaults => 
-                            defaults.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2));
+                    builder.WebHost.ConfigureKestrel(options =>
+                    {
+                        options.ListenAnyIP(5002); // <- can be used to listen instead of URLs
+                        options.ConfigureEndpointDefaults(defaults =>
+                            defaults.Protocols = Microsoft.AspNetCore.Server.Kestrel.Core.HttpProtocols.Http2);
+                    });
                     
                     builder.Services.AddGrpc();
                     app = builder.Build();
-
-                    app.Urls.Add(txtURL.Text.Trim());
+                    // app.Urls.Add(txtURL.Text.Trim());
                     app.MapGrpcService<Services.GrpcTestService>();
                     app.MapGet("/", () => "Test GRPC Server.");
 
